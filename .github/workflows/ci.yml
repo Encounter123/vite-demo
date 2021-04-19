@@ -25,7 +25,7 @@ jobs:
         run: yarn build
 
       - name: 发布到阿里云
-        uses: easingthemes/ssh-deploy@2.1.1
+        uses: easingthemes/ssh-deploy@2.1.9
         env: 
           #私钥
           SSH PRIVATE KEY: ${{ secrets.PRIVATE_KEY }}
