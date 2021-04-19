@@ -22,6 +22,7 @@ jobs:
 
       - name: 打包
         run: npm run build
+        
 
       - name: 发布到阿里云
         uses: easingthemes/ssh-deploy@v2.1.5
