@@ -1,0 +1,21 @@
+{
+  "name": "mywork",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "mockjs": "^1.1.0",
+    "vue": "^3.0.11",
+    "vue-router": "4.0",
+    "vuex": "^4.0.0-0"
+  },
+  "devDependencies": {
+    "@vue/compiler-sfc": "^3.0.4",
+    "@vitejs/plugin-vue": "1.2.1",
+    "cross-env": "^7.0.3",
+    "vite": "^2.1.5",
+    "vite-plugin-mock": "^2.5.0"
+  }
+}

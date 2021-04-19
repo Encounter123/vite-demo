@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 迁出代码
+        uses: actions/checkout@master
+
+      - name: 安装node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.0.0
+
+      - name: 安装依赖
+        id: yarn-cache
+        run: yarn
+
+      - name: 打包
+        run: yarn build
+
+      - name: 发布到阿里云
+        uses: easingthemes/ssh-deploy@2.1.1
+        env: 
+          #私钥
+          SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          #SCp参数
+          ARGS: "-aver --deletel"
+          #源目录
+          SOURCE: "dist"
+          #服务器1p:换成你的服务器P
+          REMOTE_HOST: "47.98.252.43"
+          #用户
+          REMOTE_USER: "root"
+          #目标地址
+          TARGET: "/root/vue-in-action"
