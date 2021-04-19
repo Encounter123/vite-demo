@@ -25,14 +25,14 @@ jobs:
         run: yarn build
 
       - name: 发布到阿里云
-        uses: easingthemes/ssh-deploy@2.1.9
+        uses: easingthemes/ssh-deploy@2.1.5
         env: 
           #私钥
-          SSH PRIVATE KEY: ${{ secrets.PRIVATE_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
           #SCp参数
-          ARGS: "-aver --deletel"
+          ARGS: "-aver --delete"
           #源目录
-          SOURCE: "dist"
+          SOURCE: "dist/"
           #服务器1p:换成你的服务器P
           REMOTE_HOST: "39.98.45.141"
           #用户
